@@ -1,0 +1,15 @@
+.item {
+  padding: 20px;
+  border: 1px solid #ccc;
+  display: flex;
+  margin-bottom: 20px;
+  .left {
+    flex: 1;
+  }
+  .right {
+    width: 200px;
+  }
+  .title {
+    color: red;
+  }
+}
