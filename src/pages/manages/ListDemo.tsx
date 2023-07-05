@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react'
-import useTitle from '../hooks/useTitle'
-import ListItem from '../components/ListItem'
-import Search from '../components/Search'
+import useTitle from '../../hooks/useTitle'
+import ListItem from '../../components/ListItem'
+import Search from '../../components/Search'
 
 const ListDemo: FC = () => {
   useTitle('列表')
