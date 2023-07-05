@@ -2,6 +2,7 @@ import React, { FC, useState } from 'react'
 import useTitle from '../../hooks/useTitle'
 import ListItem from '../../components/ListItem'
 import Search from '../../components/Search'
+import { useGetQuestionList } from '../../hooks/useQuestion'
 
 const ListDemo: FC = () => {
   useTitle('列表')
@@ -11,6 +12,8 @@ const ListDemo: FC = () => {
     { id: 'q3', title: '问卷3', isPublished: false },
     { id: 'q4', title: '问卷4', isPublished: true },
   ])
+  const { error, data, loading } = useGetQuestionList(10, 1)
+  console.log(data)
   // 增
   const addNew = () => {
     const r = Math.random().toString().slice(-3)

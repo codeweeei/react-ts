@@ -1,6 +1,8 @@
 import React from 'react'
 import useTitle from '../hooks/useTitle'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
+import { useGetQuestionDetail } from '../hooks/useQuestion'
+import { Button } from 'antd'
 
 function Test() {
   useTitle('测试')
@@ -10,6 +12,7 @@ function Test() {
   const navBack = () => {
     nav(-1)
   }
+  const { error, data, loading, run } = useGetQuestionDetail('123')
   return (
     <>
       <div>测试页面</div>
@@ -21,6 +24,18 @@ function Test() {
         <div>
           <span>search：</span>
           <span>{searchParams.get('name')}</span>
+        </div>
+        <div>
+          <Button disabled={loading} onClick={run}>
+            发送请求
+          </Button>
+          {loading ? (
+            <div>Loading...</div>
+          ) : !error ? (
+            <div>{data?.title}</div>
+          ) : (
+            <div>请求失败</div>
+          )}
         </div>
         <button
           onClick={() => {
