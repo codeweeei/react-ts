@@ -12,7 +12,7 @@ const ListDemo: FC = () => {
     { id: 'q3', title: '问卷3', isPublished: false },
     { id: 'q4', title: '问卷4', isPublished: true },
   ])
-  const { error, data, loading } = useGetQuestionList(10, 1)
+  const { data } = useGetQuestionList(10, 1)
   console.log(data)
   // 增
   const addNew = () => {

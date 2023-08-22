@@ -1,0 +1,20 @@
+.header {
+    padding: 0 24rpx;
+    .left {
+        float: left;
+        font-size: 26px;
+        color: #fff;
+    }
+    .right {
+        float: right;
+        color: #fff;
+    }
+}
+.main {
+    min-height: calc(100vh - 64px - 68px); // 100vh - header高度 - footer高度
+}
+.footer {
+    text-align: center;
+    background-color: #f7f7f7;
+    border-top: 1px solid #e8e8e8;
+}

@@ -6,11 +6,11 @@ function Home() {
   useTitle('首页')
   const nav = useNavigate()
   const navTo = (url: string) => {
-    // nav(url)
-    nav({
-      pathname: url,
-      search: 'name=codeweeei',
-    })
+    nav(url)
+    // nav({
+    //   pathname: url,
+    //   search: 'name=codeweeei',
+    // })
   }
   return (
     <>
@@ -26,7 +26,7 @@ function Home() {
         <br />
         <button
           onClick={() => {
-            navTo('/list')
+            navTo('/manage/list')
           }}
         >
           列表

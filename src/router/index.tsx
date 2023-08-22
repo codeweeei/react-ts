@@ -7,6 +7,8 @@ import Test from '../pages/Test'
 import MainLayout from '../layouts/MainLayout'
 import ManageLayout from '../layouts/ManageLayout'
 import ListDemo from '../pages/manages/ListDemo'
+import StarList from '../pages/manages/StarList'
+import GarbageList from '../pages/manages/GarbageList'
 import Form from '../pages/Form'
 
 const routerConfig = createBrowserRouter([
@@ -23,12 +25,20 @@ const routerConfig = createBrowserRouter([
         element: <Test />,
       },
       {
-        path: 'list',
+        path: 'manage',
         element: <ManageLayout />,
         children: [
           {
-            path: '',
+            path: 'list',
             element: <ListDemo />,
+          },
+          {
+            path: 'star',
+            element: <StarList />,
+          },
+          {
+            path: 'garbage',
+            element: <GarbageList />,
           },
         ],
       },
