@@ -1,15 +1,18 @@
-.item {
-  padding: 20px;
-  border: 1px solid #ccc;
+.container {
   display: flex;
-  margin-bottom: 20px;
-  .left {
-    flex: 1;
-  }
-  .right {
-    width: 200px;
-  }
+  flex-direction: column;
   .title {
-    color: red;
+    display: flex;
+    justify-content: space-between;
+    .left {
+      display: flex;
+    }
+    .right {
+      display: flex;
+    }
+  }
+  .button-container {
+    display: flex;
+    justify-content: space-between;
   }
 }

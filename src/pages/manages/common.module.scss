@@ -1,0 +1,19 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .left {
+        display: flex;
+    }
+    .right {
+        display: flex;
+    }
+}
+.content {
+    display: flex;
+    flex-direction: column;
+}
+.footer {
+    text-align: center;
+    margin-top: 20px;
+}

@@ -3,10 +3,9 @@ import { createBrowserRouter } from 'react-router-dom'
 
 import Home from '../pages/Home'
 import NotFound from '../pages/NotFound'
-import Test from '../pages/Test'
 import MainLayout from '../layouts/MainLayout'
 import ManageLayout from '../layouts/ManageLayout'
-import ListDemo from '../pages/manages/ListDemo'
+import List from '../pages/manages/List'
 import StarList from '../pages/manages/StarList'
 import GarbageList from '../pages/manages/GarbageList'
 import Form from '../pages/Form'
@@ -20,17 +19,14 @@ const routerConfig = createBrowserRouter([
         path: '/',
         element: <Home />,
       },
-      {
-        path: 'test/:id', // params
-        element: <Test />,
-      },
+      // 问卷列表
       {
         path: 'manage',
         element: <ManageLayout />,
         children: [
           {
             path: 'list',
-            element: <ListDemo />,
+            element: <List />,
           },
           {
             path: 'star',
@@ -42,9 +38,19 @@ const routerConfig = createBrowserRouter([
           },
         ],
       },
+      // 问卷编辑
       {
-        path: 'form',
+        path: 'question/edit/:id',
         element: <Form />,
+      },
+      // 问卷统计
+      {
+        path: 'question/stat/:id',
+        element: <Form />,
+      },
+      {
+        path: '*', // 404
+        element: <NotFound />,
       },
     ],
   },
@@ -54,3 +60,8 @@ const routerConfig = createBrowserRouter([
   },
 ])
 export default routerConfig
+
+export const HOME_PATHNAME = '/'
+export const LOGIN_PATHNAME = '/login'
+export const REGISTER_PATHNAME = '/register'
+export const MANAGE_LIST_PATHNAME = '/manage/list'
