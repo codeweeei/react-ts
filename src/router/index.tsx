@@ -9,6 +9,8 @@ import List from '../pages/manages/List'
 import StarList from '../pages/manages/StarList'
 import GarbageList from '../pages/manages/GarbageList'
 import Form from '../pages/Form'
+import Login from '../pages/user/Login'
+import Register from '../pages/user/Register'
 
 const routerConfig = createBrowserRouter([
   {
@@ -47,6 +49,16 @@ const routerConfig = createBrowserRouter([
       {
         path: 'question/stat/:id',
         element: <Form />,
+      },
+      // 登录页面
+      {
+        path: 'login',
+        element: <Login />,
+      },
+      // 注册页面
+      {
+        path: 'register',
+        element: <Register />,
       },
       {
         path: '*', // 404

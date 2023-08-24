@@ -2,9 +2,12 @@
 import React, { FC, useState } from 'react'
 import { useTitle } from 'ahooks'
 import styles from './common.module.scss'
-import { Typography, Empty, Table, Tag, Button, Space, Popconfirm } from 'antd'
+import ListSearch from '../../components/ListSearch'
+import { ExclamationCircleOutlined } from '@ant-design/icons'
+import { Typography, Empty, Table, Tag, Button, Space, Popconfirm, Modal } from 'antd'
 const { Title } = Typography
 const { Column } = Table
+const { confirm } = Modal // 模态框 -> 确认框
 
 const GarbageList: FC = () => {
   useTitle('小慕问卷-回收站')
@@ -28,6 +31,17 @@ const GarbageList: FC = () => {
   ])
   // 记录选中的ID
   const [selectedIds, setSelectedIds] = useState<string[]>([])
+  const isConfirmDlele = () => {
+    confirm({
+      icon: <ExclamationCircleOutlined />,
+      content: '是否彻底删除该问卷？',
+      okText: '确认',
+      cancelText: '取消',
+      onOk() {
+        console.log('ok')
+      },
+    })
+  }
   const TableElm = (
     <>
       <div style={{ marginBottom: '16px' }}>
@@ -37,16 +51,9 @@ const GarbageList: FC = () => {
               恢复
             </Button>
           </Popconfirm>
-          <Popconfirm
-            title="是否彻底删除?"
-            description="删除后不可找回"
-            cancelText="取消"
-            okText="确认"
-          >
-            <Button danger disabled={selectedIds.length === 0}>
-              彻底删除
-            </Button>
-          </Popconfirm>
+          <Button danger disabled={selectedIds.length === 0} onClick={isConfirmDlele}>
+            彻底删除
+          </Button>
         </Space>
       </div>
       <Table
@@ -88,7 +95,9 @@ const GarbageList: FC = () => {
         <div className={styles.left}>
           <Title level={3}>回收站</Title>
         </div>
-        <div className={styles.right}>（搜索）</div>
+        <div className={styles.right}>
+          <ListSearch></ListSearch>
+        </div>
       </div>
       <div className={styles.content}>
         {list.length === 0 && <Empty description="暂无数据"></Empty>}
